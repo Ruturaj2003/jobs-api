@@ -20,6 +20,7 @@ const auth = (req, res, next) => {
 
     //Attach user to Job Route
     req.user = { userId: payload.userId, name: payload.name };
+    next();
   } catch (error) {
     throw new UnauthenticatedError("");
   }
