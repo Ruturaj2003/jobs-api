@@ -6,9 +6,6 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     msg: err.message || "Something Went OnZY MonZY Please try again Later",
   };
 
-  if (err instanceof CustomAPIError) {
-    return res.status(err.statusCode).json({ mg: err.message });
-  }
   if (err.code && err.code === 11000) {
     customError.msg = `Duplicate Value Entered for ${Objec.keys(
       err.keyValue
